@@ -25,35 +25,36 @@ class PracticeFormTests extends TestBase {
         String city = "Delhi";
 
         pageWithPracticeForm.openPage();
-        pageWithPracticeForm.setFirstNameInput(firstName);
-        pageWithPracticeForm.setLastNameInput(lastName);
-        pageWithPracticeForm.setEmailInput(email);
-        pageWithPracticeForm.setGender(gender);
-        pageWithPracticeForm.setUserNumber(userNumber);
-        pageWithPracticeForm.setDateOfBirth(day, month, year);
-        pageWithPracticeForm.setSubject(subject);
-        pageWithPracticeForm.setHobbies(hobbies);
-        pageWithPracticeForm.setUpload(uploadFile);
-        pageWithPracticeForm.setCurrentAddress(address);
-        pageWithPracticeForm.setState(state);
-        pageWithPracticeForm.setCity(city);
-        pageWithPracticeForm.setSubmit();
-        pageWithPracticeForm.setModalDialog();
-        pageWithPracticeForm.setTableHeaderCheck("Thanks for submitting the form");
-        pageWithPracticeForm.setTableCheck("Student Name", firstName + " " + lastName);
-        pageWithPracticeForm.setTableCheck("Student Email", email);
-        pageWithPracticeForm.setTableCheck("Gender", gender);
-        pageWithPracticeForm.setTableCheck("Mobile", userNumber);
-        pageWithPracticeForm.setTableCheck("Date of Birth", day + " " + month + "," + year);
-        pageWithPracticeForm.setTableCheck("Subjects", subject);
-        pageWithPracticeForm.setTableCheck("Hobbies", hobbies);
-        pageWithPracticeForm.setTableCheck("Picture", uploadFile);
-        pageWithPracticeForm.setTableCheck("Address", address);
-        pageWithPracticeForm.setTableCheck("State and City", state + " " + city);
+
+        pageWithPracticeForm.setFirstNameInput(firstName)
+                            .setLastNameInput(lastName)
+                            .setEmailInput(email)
+                            .setGender(gender)
+                            .setUserNumber(userNumber)
+                            .setDateOfBirth(day, month, year)
+                            .setSubject(subject)
+                            .setHobbies(hobbies)
+                            .setUpload(uploadFile)
+                            .setCurrentAddress(address)
+                            .setState(state)
+                            .setCity(city)
+                            .setSubmit()
+                            .setModalDialog()
+                            .setTableHeaderCheck("Thanks for submitting the form")
+                            .setTableCheck("Student Name", firstName + " " + lastName)
+                            .setTableCheck("Student Email", email)
+                            .setTableCheck("Gender", gender)
+                            .setTableCheck("Mobile", userNumber)
+                            .setTableCheck("Date of Birth", day + " " + month + "," + year)
+                            .setTableCheck("Subjects", subject)
+                            .setTableCheck("Hobbies", hobbies)
+                            .setTableCheck("Picture", uploadFile)
+                            .setTableCheck("Address", address)
+                            .setTableCheck("State and City", state + " " + city);
     }
 
     @Test
-    public void testFormSubmissionWithoutFileUpload() { // Успешное заполнение формы без загрузки файла
+    public void FormSubmissionWithoutFileUploadTest() { // Успешное заполнение формы без загрузки файла
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress();
@@ -69,33 +70,34 @@ class PracticeFormTests extends TestBase {
         String city = "Delhi";
 
         pageWithPracticeForm.openPage();
-        pageWithPracticeForm.setFirstNameInput(firstName);
-        pageWithPracticeForm.setLastNameInput(lastName);
-        pageWithPracticeForm.setEmailInput(email);
-        pageWithPracticeForm.setGender(gender);
-        pageWithPracticeForm.setUserNumber(userNumber);
-        pageWithPracticeForm.setDateOfBirth(day, month, year);
-        pageWithPracticeForm.setSubject(subject);
-        pageWithPracticeForm.setHobbies(hobbies);
-        pageWithPracticeForm.setCurrentAddress(address);
-        pageWithPracticeForm.setState(state);
-        pageWithPracticeForm.setCity(city);
-        pageWithPracticeForm.setSubmit();
-        pageWithPracticeForm.setModalDialog();
-        pageWithPracticeForm.setTableHeaderCheck("Thanks for submitting the form");
-        pageWithPracticeForm.setTableCheck("Student Name", firstName + " " + lastName);
-        pageWithPracticeForm.setTableCheck("Student Email", email);
-        pageWithPracticeForm.setTableCheck("Gender", gender);
-        pageWithPracticeForm.setTableCheck("Mobile", userNumber);
-        pageWithPracticeForm.setTableCheck("Date of Birth", day + " " + month + "," + year);
-        pageWithPracticeForm.setTableCheck("Subjects", subject);
-        pageWithPracticeForm.setTableCheck("Hobbies", hobbies);
-        pageWithPracticeForm.setTableCheck("Address", address);
-        pageWithPracticeForm.setTableCheck("State and City", state + " " + city);
+
+        pageWithPracticeForm.setFirstNameInput(firstName)
+                            .setLastNameInput(lastName)
+                            .setEmailInput(email)
+                            .setGender(gender)
+                            .setUserNumber(userNumber)
+                            .setDateOfBirth(day, month, year)
+                            .setSubject(subject)
+                            .setHobbies(hobbies)
+                            .setCurrentAddress(address)
+                            .setState(state)
+                            .setCity(city)
+                            .setSubmit()
+                            .setModalDialog()
+                            .setTableHeaderCheck("Thanks for submitting the form")
+                            .setTableCheck("Student Name", firstName + " " + lastName)
+                            .setTableCheck("Student Email", email)
+                            .setTableCheck("Gender", gender)
+                            .setTableCheck("Mobile", userNumber)
+                            .setTableCheck("Date of Birth", day + " " + month + "," + year)
+                            .setTableCheck("Subjects", subject)
+                            .setTableCheck("Hobbies", hobbies)
+                            .setTableCheck("Address", address)
+                            .setTableCheck("State and City", state + " " + city);
     }
 
     @Test
-    public void testFormSubmissionWithMinimalData() { // Успешное заполнение формы с минимальными данными
+    public void FormSubmissionWithMinimalDataTest() { // Успешное заполнение формы с минимальными данными
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress();
@@ -103,38 +105,40 @@ class PracticeFormTests extends TestBase {
         String userNumber = faker.phoneNumber().subscriberNumber(10);
 
         pageWithPracticeForm.openPage();
-        pageWithPracticeForm.setFirstNameInput(firstName);
-        pageWithPracticeForm.setLastNameInput(lastName);
-        pageWithPracticeForm.setEmailInput(email);
-        pageWithPracticeForm.setGender(gender);
-        pageWithPracticeForm.setUserNumber(userNumber);
-        pageWithPracticeForm.setSubmit();
-        pageWithPracticeForm.setModalDialog();
-        pageWithPracticeForm.setTableHeaderCheck("Thanks for submitting the form");
-        pageWithPracticeForm.setTableCheck("Student Name", firstName + " " + lastName);
-        pageWithPracticeForm.setTableCheck("Student Email", email);
-        pageWithPracticeForm.setTableCheck("Gender", gender);
-        pageWithPracticeForm.setTableCheck("Mobile", userNumber);
+
+        pageWithPracticeForm.setFirstNameInput(firstName)
+                            .setLastNameInput(lastName)
+                            .setEmailInput(email)
+                            .setGender(gender)
+                            .setUserNumber(userNumber)
+                            .setSubmit()
+                            .setModalDialog()
+                            .setTableHeaderCheck("Thanks for submitting the form")
+                            .setTableCheck("Student Name", firstName + " " + lastName)
+                            .setTableCheck("Student Email", email)
+                            .setTableCheck("Gender", gender)
+                            .setTableCheck("Mobile", userNumber);
     }
 
     @Test
-    public void testFormSubmissionWithoutFirstName() { // Ошибка при отсутствии обязательного поля "Имя"
+    public void FormSubmissionWithoutFirstNameTest() { // Ошибка при отсутствии обязательного поля "Имя"
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress();
         String gender = faker.demographic().sex();
         String userNumber = faker.phoneNumber().subscriberNumber(10);
 
         pageWithPracticeForm.openPage();
-        pageWithPracticeForm.setLastNameInput(lastName);
-        pageWithPracticeForm.setEmailInput(email);
-        pageWithPracticeForm.setGender(gender);
-        pageWithPracticeForm.setUserNumber(userNumber);
-        pageWithPracticeForm.setSubmit();
+
+        pageWithPracticeForm.setLastNameInput(lastName)
+                            .setEmailInput(email)
+                            .setGender(gender)
+                            .setUserNumber(userNumber)
+                            .setSubmit();
         // Ожидаем, что форма не будет отправлена успешно, проверка модального окна не требуется
     }
 
     @Test
-    public void testFormSubmissionWithInvalidEmail() { // Ошибка при некорректном формате email
+    public void FormSubmissionWithInvalidEmailTest() { // Ошибка при некорректном формате email
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = "invalid-email";  // Намеренно некорректный email
@@ -142,12 +146,13 @@ class PracticeFormTests extends TestBase {
         String userNumber = faker.phoneNumber().subscriberNumber(10);
 
         pageWithPracticeForm.openPage();
-        pageWithPracticeForm.setFirstNameInput(firstName);
-        pageWithPracticeForm.setLastNameInput(lastName);
-        pageWithPracticeForm.setEmailInput(email);
-        pageWithPracticeForm.setGender(gender);
-        pageWithPracticeForm.setUserNumber(userNumber);
-        pageWithPracticeForm.setSubmit();
+
+        pageWithPracticeForm.setFirstNameInput(firstName)
+                            .setLastNameInput(lastName)
+                            .setEmailInput(email)
+                            .setGender(gender)
+                            .setUserNumber(userNumber)
+                            .setSubmit();
         // Ожидаем, что форма не будет отправлена успешно, проверка модального окна не требуется
     }
 }
