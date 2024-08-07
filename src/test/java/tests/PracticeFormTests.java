@@ -24,9 +24,9 @@ class PracticeFormTests extends TestBase {
         String state = "NCR";
         String city = "Delhi";
 
-        pageWithPracticeForm.openPage();
+        pageWithPracticeForm.openPage()
 
-        pageWithPracticeForm.setFirstNameInput(firstName)
+                            .setFirstNameInput(firstName)
                             .setLastNameInput(lastName)
                             .setEmailInput(email)
                             .setGender(gender)
@@ -69,9 +69,9 @@ class PracticeFormTests extends TestBase {
         String state = "NCR";
         String city = "Delhi";
 
-        pageWithPracticeForm.openPage();
+        pageWithPracticeForm.openPage()
 
-        pageWithPracticeForm.setFirstNameInput(firstName)
+                            .setFirstNameInput(firstName)
                             .setLastNameInput(lastName)
                             .setEmailInput(email)
                             .setGender(gender)
@@ -104,9 +104,9 @@ class PracticeFormTests extends TestBase {
         String gender = faker.demographic().sex();
         String userNumber = faker.phoneNumber().subscriberNumber(10);
 
-        pageWithPracticeForm.openPage();
+        pageWithPracticeForm.openPage()
 
-        pageWithPracticeForm.setFirstNameInput(firstName)
+                            .setFirstNameInput(firstName)
                             .setLastNameInput(lastName)
                             .setEmailInput(email)
                             .setGender(gender)
@@ -127,9 +127,9 @@ class PracticeFormTests extends TestBase {
         String gender = faker.demographic().sex();
         String userNumber = faker.phoneNumber().subscriberNumber(10);
 
-        pageWithPracticeForm.openPage();
+        pageWithPracticeForm.openPage()
 
-        pageWithPracticeForm.setLastNameInput(lastName)
+                            .setLastNameInput(lastName)
                             .setEmailInput(email)
                             .setGender(gender)
                             .setUserNumber(userNumber)
@@ -145,9 +145,9 @@ class PracticeFormTests extends TestBase {
         String gender = faker.demographic().sex();
         String userNumber = faker.phoneNumber().subscriberNumber(10);
 
-        pageWithPracticeForm.openPage();
+        pageWithPracticeForm.openPage()
 
-        pageWithPracticeForm.setFirstNameInput(firstName)
+                            .setFirstNameInput(firstName)
                             .setLastNameInput(lastName)
                             .setEmailInput(email)
                             .setGender(gender)
