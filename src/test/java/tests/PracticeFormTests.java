@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.PageWithPracticeForm;
 
@@ -8,6 +10,8 @@ class PracticeFormTests extends TestBase {
     PageWithPracticeForm pageWithPracticeForm = new PageWithPracticeForm();
 
     @Test
+    @Owner("mihailivevgeny")
+    @Tag("smoke")
     public void checkFillingAllFieldsTest() { // Успешное заполнение всех полей формы
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
@@ -54,6 +58,8 @@ class PracticeFormTests extends TestBase {
     }
 
     @Test
+    @Owner("mihailivevgeny")
+    @Tag("smoke")
     public void FormSubmissionWithoutFileUploadTest() { // Успешное заполнение формы без загрузки файла
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
@@ -97,6 +103,8 @@ class PracticeFormTests extends TestBase {
     }
 
     @Test
+    @Owner("mihailivevgeny")
+    @Tag("smoke")
     public void FormSubmissionWithMinimalDataTest() { // Успешное заполнение формы с минимальными данными
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
@@ -121,15 +129,17 @@ class PracticeFormTests extends TestBase {
     }
 
     @Test
+    @Owner("mihailivevgeny")
+    @Tag("smoke")
     public void FormSubmissionWithoutFirstNameTest() { // Ошибка при отсутствии обязательного поля "Имя"
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress();
         String gender = faker.demographic().sex();
         String userNumber = faker.phoneNumber().subscriberNumber(10);
 
-        pageWithPracticeForm.openPage()
+        pageWithPracticeForm.openPage();
 
-                            .setLastNameInput(lastName)
+        pageWithPracticeForm.setLastNameInput(lastName)
                             .setEmailInput(email)
                             .setGender(gender)
                             .setUserNumber(userNumber)
@@ -138,6 +148,8 @@ class PracticeFormTests extends TestBase {
     }
 
     @Test
+    @Owner("mihailivevgeny")
+    @Tag("smoke")
     public void FormSubmissionWithInvalidEmailTest() { // Ошибка при некорректном формате email
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
@@ -145,9 +157,9 @@ class PracticeFormTests extends TestBase {
         String gender = faker.demographic().sex();
         String userNumber = faker.phoneNumber().subscriberNumber(10);
 
-        pageWithPracticeForm.openPage()
+        pageWithPracticeForm.openPage();
 
-                            .setFirstNameInput(firstName)
+        pageWithPracticeForm.setFirstNameInput(firstName)
                             .setLastNameInput(lastName)
                             .setEmailInput(email)
                             .setGender(gender)
