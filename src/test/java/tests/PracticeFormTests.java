@@ -4,145 +4,113 @@ import io.qameta.allure.Owner;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.PageWithPracticeForm;
+import utils.TestData;
 
+@Tag("regression")
 class PracticeFormTests extends TestBase {
 
+    TestData testData = new TestData();
     PageWithPracticeForm pageWithPracticeForm = new PageWithPracticeForm();
 
     @Test
     @Owner("mihailivevgeny")
     @Tag("smoke")
     public void checkFillingAllFieldsTest() { // Успешное заполнение всех полей формы
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String email = faker.internet().emailAddress();
-        String gender = faker.demographic().sex();
-        String userNumber = faker.phoneNumber().subscriberNumber(10);
-        String day = String.valueOf(faker.number().numberBetween(1, 28));
-        String month = "February";  // Faker не генерирует месяц напрямую
-        String year = String.valueOf(faker.number().numberBetween(1990, 2005));
-        String subject = "History";
-        String hobbies = "Sports";
-        String uploadFile = "testsPhoto.png";
-        String address = faker.address().fullAddress();
-        String state = "NCR";
-        String city = "Delhi";
 
         pageWithPracticeForm.openPage()
 
-                            .setFirstNameInput(firstName)
-                            .setLastNameInput(lastName)
-                            .setEmailInput(email)
-                            .setGender(gender)
-                            .setUserNumber(userNumber)
-                            .setDateOfBirth(day, month, year)
-                            .setSubject(subject)
-                            .setHobbies(hobbies)
-                            .setUpload(uploadFile)
-                            .setCurrentAddress(address)
-                            .setState(state)
-                            .setCity(city)
+                            .setFirstNameInput(testData.firstName)
+                            .setLastNameInput(testData.lastName)
+                            .setEmailInput(testData.email)
+                            .setGender(testData.gender)
+                            .setUserNumber(testData.userNumber)
+                            .setDateOfBirth(testData.day, testData.month, testData.year)
+                            .setSubject(testData.subject)
+                            .setHobbies(testData.hobbies)
+                            .setUpload(testData.uploadFile)
+                            .setCurrentAddress(testData.address)
+                            .setState(testData.state)
+                            .setCity(testData.city)
                             .setSubmit()
                             .setModalDialog()
                             .setTableHeaderCheck("Thanks for submitting the form")
-                            .setTableCheck("Student Name", firstName + " " + lastName)
-                            .setTableCheck("Student Email", email)
-                            .setTableCheck("Gender", gender)
-                            .setTableCheck("Mobile", userNumber)
-                            .setTableCheck("Date of Birth", day + " " + month + "," + year)
-                            .setTableCheck("Subjects", subject)
-                            .setTableCheck("Hobbies", hobbies)
-                            .setTableCheck("Picture", uploadFile)
-                            .setTableCheck("Address", address)
-                            .setTableCheck("State and City", state + " " + city);
+                            .setTableCheck("Student Name", testData.firstName + " " + testData.lastName)
+                            .setTableCheck("Student Email", testData.email)
+                            .setTableCheck("Gender", testData.gender)
+                            .setTableCheck("Mobile", testData.userNumber)
+                            .setTableCheck("Date of Birth", testData.day + " " + testData.month + "," + testData.year)
+                            .setTableCheck("Subjects", testData.subject)
+                            .setTableCheck("Hobbies", testData.hobbies)
+                            .setTableCheck("Picture", testData.uploadFile)
+                            .setTableCheck("Address", testData.address)
+                            .setTableCheck("State and City", testData.state + " " + testData.city);
     }
 
     @Test
     @Owner("mihailivevgeny")
     @Tag("smoke")
     public void FormSubmissionWithoutFileUploadTest() { // Успешное заполнение формы без загрузки файла
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String email = faker.internet().emailAddress();
-        String gender = faker.demographic().sex();
-        String userNumber = faker.phoneNumber().subscriberNumber(10);
-        String day = String.valueOf(faker.number().numberBetween(1, 28));
-        String month = "March";
-        String year = String.valueOf(faker.number().numberBetween(1990, 2005));
-        String subject = "Math";
-        String hobbies = "Reading";
-        String address = faker.address().fullAddress();
-        String state = "NCR";
-        String city = "Delhi";
 
         pageWithPracticeForm.openPage()
 
-                            .setFirstNameInput(firstName)
-                            .setLastNameInput(lastName)
-                            .setEmailInput(email)
-                            .setGender(gender)
-                            .setUserNumber(userNumber)
-                            .setDateOfBirth(day, month, year)
-                            .setSubject(subject)
-                            .setHobbies(hobbies)
-                            .setCurrentAddress(address)
-                            .setState(state)
-                            .setCity(city)
+                            .setFirstNameInput(testData.firstName)
+                            .setLastNameInput(testData.lastName)
+                            .setEmailInput(testData.email)
+                            .setGender(testData.gender)
+                            .setUserNumber(testData.userNumber)
+                            .setDateOfBirth(testData.day, testData.month, testData.year)
+                            .setSubject(testData.subject)
+                            .setHobbies(testData.hobbies)
+                            .setCurrentAddress(testData.address)
+                            .setState(testData.state)
+                            .setCity(testData.city)
                             .setSubmit()
                             .setModalDialog()
                             .setTableHeaderCheck("Thanks for submitting the form")
-                            .setTableCheck("Student Name", firstName + " " + lastName)
-                            .setTableCheck("Student Email", email)
-                            .setTableCheck("Gender", gender)
-                            .setTableCheck("Mobile", userNumber)
-                            .setTableCheck("Date of Birth", day + " " + month + "," + year)
-                            .setTableCheck("Subjects", subject)
-                            .setTableCheck("Hobbies", hobbies)
-                            .setTableCheck("Address", address)
-                            .setTableCheck("State and City", state + " " + city);
+                            .setTableCheck("Student Name", testData.firstName + " " + testData.lastName)
+                            .setTableCheck("Student Email", testData.email)
+                            .setTableCheck("Gender", testData.gender)
+                            .setTableCheck("Mobile", testData.userNumber)
+                            .setTableCheck("Date of Birth", testData.day + " " + testData.month + "," + testData.year)
+                            .setTableCheck("Subjects", testData.subject)
+                            .setTableCheck("Hobbies", testData.hobbies)
+                            .setTableCheck("Address", testData.address)
+                            .setTableCheck("State and City", testData.state + " " + testData.city);
     }
 
     @Test
     @Owner("mihailivevgeny")
     @Tag("smoke")
     public void FormSubmissionWithMinimalDataTest() { // Успешное заполнение формы с минимальными данными
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String email = faker.internet().emailAddress();
-        String gender = faker.demographic().sex();
-        String userNumber = faker.phoneNumber().subscriberNumber(10);
+
 
         pageWithPracticeForm.openPage()
 
-                            .setFirstNameInput(firstName)
-                            .setLastNameInput(lastName)
-                            .setEmailInput(email)
-                            .setGender(gender)
-                            .setUserNumber(userNumber)
+                            .setFirstNameInput(testData.firstName)
+                            .setLastNameInput(testData.lastName)
+                            .setEmailInput(testData.email)
+                            .setGender(testData.gender)
+                            .setUserNumber(testData.userNumber)
                             .setSubmit()
                             .setModalDialog()
                             .setTableHeaderCheck("Thanks for submitting the form")
-                            .setTableCheck("Student Name", firstName + " " + lastName)
-                            .setTableCheck("Student Email", email)
-                            .setTableCheck("Gender", gender)
-                            .setTableCheck("Mobile", userNumber);
+                            .setTableCheck("Student Name", testData.firstName + " " + testData.lastName)
+                            .setTableCheck("Student Email", testData.email)
+                            .setTableCheck("Gender", testData.gender)
+                            .setTableCheck("Mobile", testData.userNumber);
     }
 
     @Test
     @Owner("mihailivevgeny")
     @Tag("smoke")
     public void FormSubmissionWithoutFirstNameTest() { // Ошибка при отсутствии обязательного поля "Имя"
-        String lastName = faker.name().lastName();
-        String email = faker.internet().emailAddress();
-        String gender = faker.demographic().sex();
-        String userNumber = faker.phoneNumber().subscriberNumber(10);
 
-        pageWithPracticeForm.openPage();
+        pageWithPracticeForm.openPage()
 
-        pageWithPracticeForm.setLastNameInput(lastName)
-                            .setEmailInput(email)
-                            .setGender(gender)
-                            .setUserNumber(userNumber)
+                            .setLastNameInput(testData.lastName)
+                            .setEmailInput(testData.email)
+                            .setGender(testData.gender)
+                            .setUserNumber(testData.userNumber)
                             .setSubmit();
         // Ожидаем, что форма не будет отправлена успешно, проверка модального окна не требуется
     }
@@ -151,19 +119,14 @@ class PracticeFormTests extends TestBase {
     @Owner("mihailivevgeny")
     @Tag("smoke")
     public void FormSubmissionWithInvalidEmailTest() { // Ошибка при некорректном формате email
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String email = "invalid-email";  // Намеренно некорректный email
-        String gender = faker.demographic().sex();
-        String userNumber = faker.phoneNumber().subscriberNumber(10);
 
-        pageWithPracticeForm.openPage();
+        pageWithPracticeForm.openPage()
 
-        pageWithPracticeForm.setFirstNameInput(firstName)
-                            .setLastNameInput(lastName)
-                            .setEmailInput(email)
-                            .setGender(gender)
-                            .setUserNumber(userNumber)
+                            .setFirstNameInput(testData.firstName)
+                            .setLastNameInput(testData.lastName)
+                            .setEmailInput(testData.email)
+                            .setGender(testData.gender)
+                            .setUserNumber(testData.userNumber)
                             .setSubmit();
         // Ожидаем, что форма не будет отправлена успешно, проверка модального окна не требуется
     }
