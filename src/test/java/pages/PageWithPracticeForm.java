@@ -37,6 +37,7 @@ public class PageWithPracticeForm {
     @Step("Открыть страницу формы")
     public PageWithPracticeForm openPage() {
         open("/automation-practice-form");
+        removeBannersAndFooter();
         return this;
     }
 
@@ -103,6 +104,8 @@ public class PageWithPracticeForm {
 
     @Step("Установить штат: {value}")
     public PageWithPracticeForm setState(String value) {
+        removeBannersAndFooter();
+        Selenide.executeJavaScript("window.scrollBy(0,500);"); //делаем прокрутку ОБЯЗАТЕЛЬНО
         stateInput.click();
         selectCityAndStateInput.$(byText(value)).click();
         return this;
@@ -110,6 +113,7 @@ public class PageWithPracticeForm {
 
     @Step("Установить город: {value}")
     public PageWithPracticeForm setCity(String value) {
+        removeBannersAndFooter();
         cityInput.click();
         selectCityAndStateInput.$(byText(value)).click();
         return this;
@@ -117,7 +121,8 @@ public class PageWithPracticeForm {
 
     @Step("Нажать кнопку отправки")
     public PageWithPracticeForm setSubmit() {
-        Selenide.executeJavaScript("arguments[0].click();", submitInput);
+        removeBannersAndFooter();
+        Selenide.executeJavaScript("arguments[0].click();", submitInput); //Если прокрутка не помогает, можно использовать JavaScript для выполнения клика. Это обойдет любые проблемы с перекрытием.
         return this;
     }
 
@@ -137,5 +142,9 @@ public class PageWithPracticeForm {
     public PageWithPracticeForm setTableCheck(String key, String value) {
         assertTableCheckInput.$(byText(key)).parent().shouldHave(text(value));
         return this;
+    }
+    private void removeBannersAndFooter() { //МЕТОД, КОТОРЫЙ УБИРАЕТ ВСЕ БАННЕРЫ, НУЖНО СВЫВОДИТЬ В ОТДЕЛЬНЫЙ КЛАСС И ДОБАЛЯТЬ В OPEN
+        Selenide.executeJavaScript("$('#fixedban').remove()");
+        Selenide.executeJavaScript("$('footer').remove()");
     }
 }
